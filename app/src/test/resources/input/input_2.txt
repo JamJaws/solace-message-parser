@@ -1,0 +1,24 @@
+JMSDeliveryMode:                        2
+JMSDestination:                         Queue 'jamjaws.parser'
+JMSExpiration:                          0
+JMSMessageID:                           ID:123.123.123.bib7sh81hw0876npfab:550
+JMSPriority:                            4
+JMSTimestamp:                           1716454521918
+JMSProperties:                          {info:1}
+Destination:                            Queue 'jamjaws.parser'
+AppMessageID:                           ID:123.123.123.bib7sh81hw0876npfab:550
+SendTimestamp:                          1716454521918 (Thu May 23 2024 10:55:21)
+Priority:                               4
+Class Of Service:                       USER_COS_1
+DeliveryMode:                           PERSISTENT
+Message Id:                             320873975315
+DMQ Eligible
+RandomText:                             1
+
+XML:                                    len=83
+  7b 22 65 76 65 72 79 74    68 69 6e 67 22 3a 34 32    {"everything":42
+  2c 22 64 61 74 65 22 3a    22 32 30 32 34 2d 30 36    ,"date":"2024-06
+  2d 30 37 22 2c 22 6e 61    6d 65 22 3a 22 4a 61 6e    -07","name":"Jan
+  65 20 44 6f 65 22 2c 22    6e 65 73 74 65 64 22 3a    e Doe","nested":
+  7b 22 6e 65 73 74 65 64    22 3a 22 76 61 6c 75 65    {nested":"value
+  22 7d 7d                                              "}}
