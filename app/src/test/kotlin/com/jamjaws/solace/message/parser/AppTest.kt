@@ -10,7 +10,7 @@ import kotlin.io.path.deleteExisting
 import kotlin.test.Test
 
 class AppTest {
-    private val app = App(AppTest::class.java.getResource("/input")!!.file)
+    private val app = App(AppTest::class.java.getResource("/input")!!.file, "output")
     private val tempDir = createTempDirectory().also(Path::deleteExisting)
 
     @Test

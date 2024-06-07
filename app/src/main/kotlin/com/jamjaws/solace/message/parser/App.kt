@@ -2,14 +2,18 @@ package com.jamjaws.solace.message.parser
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import kotlinx.cli.ArgParser
+import kotlinx.cli.ArgType
+import kotlinx.cli.default
 import java.io.File
 
-class App(private val inputPathname: String) {
+class App(private val inputPathname: String, private val outputPathname: String) {
 
     private val mapper = jacksonObjectMapper().enable(SerializationFeature.INDENT_OUTPUT)
 
     fun files(): List<File> =
-        File(inputPathname).listFiles { _, name -> name.endsWith(".txt") }?.toList().orEmpty()
+        File(inputPathname).also { println(it.absolutePath) }.listFiles { _, name -> name.endsWith(".txt") }?.toList()
+            .orEmpty()
 
     fun parse(file: File): List<Message> =
         file.useLines { lines ->
@@ -70,7 +74,7 @@ class App(private val inputPathname: String) {
         )
     }
 
-    fun writeJson(message: Message, outputFolder: File = File("output")) {
+    fun writeJson(message: Message, outputFolder: File = File(outputPathname)) {
         val directory = File(outputFolder, message.destination).also(File::mkdirs)
         if (message.validJson) {
             mapper.writeValue(File(directory, "${message.jmsMessageID}.json"), mapper.readTree(message.json))
@@ -80,7 +84,12 @@ class App(private val inputPathname: String) {
     }
 }
 
-fun main() {
-    val app = App("input")
+fun main(args: Array<String>) {
+    val parser = ArgParser("Solace message parser")
+    val input by parser.option(ArgType.String, shortName = "i", description = "Input directory").default("input")
+    val output by parser.option(ArgType.String, shortName = "o", description = "Output file name").default("output")
+    parser.parse(args)
+
+    val app = App(input, output)
     app.files().flatMap(app::parse).onEach(app::print).forEach(app::writeJson)
 }
