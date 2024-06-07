@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.0.0"
-junit-jupiter-engine = "5.10.1"
+junit-jupiter-engine = "5.10.2"
 kotest-assertions = "5.9.0"
 jackson = "2.17.1"
 kotlin-cli = "0.3.6"
