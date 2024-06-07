@@ -8,6 +8,7 @@ repositories {
 }
 
 dependencies {
+    implementation(libs.kotlinx.cli)
     implementation(libs.bundles.jackson)
     testImplementation(libs.junit.jupiter.engine)
     testImplementation(libs.kotlin.test.junit5)
@@ -23,6 +24,10 @@ java {
 
 application {
     mainClass = "com.jamjaws.solace.message.parser.AppKt"
+}
+
+tasks.named<JavaExec>("run") {
+    workingDir = file("..")
 }
 
 tasks.named<Test>("test") {

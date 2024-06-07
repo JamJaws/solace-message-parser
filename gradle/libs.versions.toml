@@ -3,8 +3,10 @@ kotlin = "1.9.22"
 junit-jupiter-engine = "5.10.1"
 kotest-assertions = "5.9.0"
 jackson = "2.17.1"
+kotlin-cli = "0.3.6"
 
 [libraries]
+kotlinx-cli = { module = "org.jetbrains.kotlinx:kotlinx-cli", version.ref = "kotlin-cli" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter-engine" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
