@@ -2,7 +2,7 @@
 kotlin = "2.2.21"
 junit-jupiter-engine = "6.0.0"
 kotest-assertions = "6.0.7"
-jackson = "2.20.0"
+jackson = "2.20.1"
 kotlin-cli = "0.3.6"
 
 [libraries]
